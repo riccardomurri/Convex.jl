@@ -29,6 +29,7 @@ end
 @testset "Convex" begin
     include("test_utilities.jl")
     include("deprecations.jl")
+    include("test_abstract_variable.jl")
 
     @testset "SCS with warmstarts" begin
         # We exclude `sdp_matrix_frac_atom` due to the bug https://github.com/JuliaOpt/SCS.jl/issues/153
