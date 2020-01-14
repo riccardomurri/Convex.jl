@@ -5,6 +5,18 @@
   ([#330](https://github.com/JuliaOpt/Convex.jl/pull/330)).
 * `lambdamin` and `lambdamax` have been deprecated in favor of `eigmin` and
   `eigmax`. ([#357](https://github.com/JuliaOpt/Convex.jl/pull/357))
+* You can now create your own variable types by subtyping `AbstractVariable`.
+  See the
+  [docs](https://www.juliaopt.org/Convex.jl/dev/advanced/#Custom-Variable-Types-1)
+  for more information. You can also add constraints directly to a variable
+  using `add_constraint!`. ([#358](https://github.com/JuliaOpt/Convex.jl/pull/358))
+* Accessors `vexity(x::Variable)`, `sign(x::Variable)`, and
+  `evaluate(x::Variable)` should now be the preferred way to access properties
+  of a variable; likewise use `set_value!` to set the initial value of a
+  variable. ([#358](https://github.com/JuliaOpt/Convex.jl/pull/358))
+* To create integer or binary constraints, use the `VarType` enum (e.g.
+  `Variable(BinVar)`). Access or set this via `vartype` and `vartype!`.
+  ([#358](https://github.com/JuliaOpt/Convex.jl/pull/358))
 * `evaluate(x::Variable)` and `evaluate(c::Constant)` now return scalars and
   vectors as appropriate, instead of `(1,1)`- and `(d,1)`-matrices.
   ([#359](https://github.com/JuliaOpt/Convex.jl/pull/359)). This affects
