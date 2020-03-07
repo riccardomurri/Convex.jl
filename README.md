@@ -15,8 +15,6 @@
 
 ## Quick Example
 
-Note: the following example uses the syntax of the master branch of Convex.jl. See the [stable docs](https://www.juliaopt.org/Convex.jl/stable) for examples for the current release.
-
 To run this example, first install Convex and at least one solver, such as SCS:
 ```julia
 using Pkg
@@ -40,7 +38,7 @@ x = Variable(n)
 problem = minimize(sumsquares(A * x - b), [x >= 0])
 
 # Solve the problem by calling solve!
-solve!(problem, SCS.Optimizer)
+solve!(problem, COSMO.Optimizer)
 
 # Check the status of the problem
 problem.status # :Optimal, :Infeasible, :Unbounded etc.
