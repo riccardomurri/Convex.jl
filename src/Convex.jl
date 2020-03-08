@@ -156,4 +156,8 @@ end
 @deprecate lambdamin eigmin
 @deprecate lambdamax eigmax
 
+
+include("precompile.jl")
+_precompile_()
+
 end
