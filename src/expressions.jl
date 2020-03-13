@@ -44,8 +44,7 @@ Base.hash(ex::AbstractExpr, h::UInt) = xor(id_hash(ex), hash(head(ex), h))::UInt
 
 function Base.hash(A::Array{<:AbstractExpr}, h::UInt)
     h = xor(hashaa_seed, hash(size(A), h))
-    h ⊻= reduce(combinehash, map(id_hash, A))
-    return h
+    return reduce(combinehash, map(id_hash, A), init=h)
 end
 
 
